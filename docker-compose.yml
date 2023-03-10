@@ -10,7 +10,7 @@ services:
   db:
     image: mariadb
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       - MARIADB_ROOT_PASSWORD=root
       - MARIADB_DATABASE=ubeer
