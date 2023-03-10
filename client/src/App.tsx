@@ -1,36 +1,20 @@
-import { useContext, createContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { NavBar } from './features/components';
-import { NotFound, Home, LogIn, Catalog } from './features/views';
-import { z } from 'zod';
+import { NotFound, Home, Authentification, Catalog } from './features/views';
 import './index.css';
 
-const UserSchema = z.object({
-  name: z.string(),
-  isConnected: z.boolean(),
-});
-
-type User = z.infer<typeof UserSchema>;
-
-const Context = createContext<User>({
-  name: '',
-  isConnected: false,
-});
-
-function App() {
+export const App = () => {
   return (
     <div className="App">
       <Router>
-        <NavBar />
-        <Routes>
-          <Route path="*" element={<NotFound />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/catalogue-bieres" element={<Catalog />} />
-          <Route path="/log-in" element={<LogIn />} />
-        </Routes>
+          <NavBar />
+          <Routes>
+            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/catalogue-bieres" element={<Catalog />} />
+            <Route path="/auth0" element={<Authentification />} />
+          </Routes>
       </Router>
     </div>
   );
-}
-
-export default App;
+};

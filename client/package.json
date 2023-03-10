@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "dev": "vitest",
     "test": "vitest run",
-    "ci": "yarn lint && yarn test && yarn run build",
+    "ci": "npm run lint && npm run test && npm run build",
     "cy:setup": "cypress install && cypress ",
     "cy:run": "cypress run",
     "cy:open": "cypress open",

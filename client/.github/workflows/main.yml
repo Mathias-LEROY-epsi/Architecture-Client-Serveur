@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: action/checkout@3
-      - uses: yarn/action-setup@v2
+      - uses: npm/action-setup@v2
         with:
           version: 7
       - uses: action/setup-node@v3
         with:
           version: 16.x
-          cache: 'yarn'
+          cache: 'npm'
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn run ci
+      - run: npm install --frozen-lockfile
+      - run: npm run ci
