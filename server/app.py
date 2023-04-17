@@ -9,8 +9,10 @@ from jose import jwt
 AUTH0_DOMAIN = 'dev-ow5mhnbdk5tu0hik.us.auth0.com'
 API_AUDIENCE = 'https://beers'
 ALGORITHMS = ["RS256"]
+# Pour récupérer un token sur auth0 à tester avec Postman, allez dans le menu Applications > APIs puis sélectionner l'API,
+# cliquer sur l'onglet "test" et lancer le test enfin récupérer le type de token et l'access token
 
-APP = Flask(__name__)
+app = Flask(__name__)
 
 # Error handler
 class AuthError(Exception):
@@ -18,7 +20,7 @@ class AuthError(Exception):
         self.error = error
         self.status_code = status_code
 
-@APP.errorhandler(AuthError)
+@app.errorhandler(AuthError)
 def handle_auth_error(ex):
     response = jsonify(ex.error)
     response.status_code = ex.status_code
@@ -123,7 +125,6 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from datetime import datetime
 
-app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@db:3306/ubeer'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
