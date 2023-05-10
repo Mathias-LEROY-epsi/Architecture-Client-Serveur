@@ -9,15 +9,7 @@ export type BeerFullProps = {
   };
 };
 
-export type BeerWithoutIdProps = {
-  name: string;
-  style: string;
-  brewery: {
-    id?: number;
-    name: string;
-    location: string;
-  };
-};
+export type BeerWithoutIdProps = Omit<BeerFullProps, 'id'>;
 
 export type BeerProps = {
   id?: number;
@@ -29,18 +21,14 @@ export type BreweryProps = {
   id?: number;
   name: string;
   location: string;
-  beers: {
-    id?: number;
-    name: string;
-    style: string;
-  };
+  beers: BeerProps[];
 };
 
 export type OrderProps = {
   id?: number;
   customerName?: string;
   date?: string;
-  beers: BeerProps;
+  beers: BeerProps[];
 };
 
 export type ButtonProps = {

@@ -14,7 +14,7 @@ export const Search = () => {
   const [name, setName] = useState('');
   const [style, setStyle] = useState('');
 
-  const [dataById, setDataById] = useState();
+  const [dataById, setDataById] = useState<BeerFullProps>();
 
   const [brewery, setBrewery] = useState(1);
   const [breweryName, setBreweryName] = useState('');
@@ -389,11 +389,7 @@ export const Search = () => {
                           beer.id &&
                             queryPostAnOrder.mutate({
                               customerName: user.name,
-                              beers: {
-                                id: beer.id,
-                                name: beer.name,
-                                style: beer.style
-                              }
+                              beers: [{ id: beer.id, name: beer.name, style: beer.style }]
                             });
                         }}>
                         Acheter

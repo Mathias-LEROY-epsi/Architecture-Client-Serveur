@@ -126,11 +126,7 @@ export const SearchByBreweries = () => {
                                     queryPostAnOrder.mutate({
                                       id: makeAnOrder(),
                                       customerName: user.name,
-                                      beers: {
-                                        id: beer.id,
-                                        name: beer.name,
-                                        style: beer.style
-                                      }
+                                      beers: [{ id: beer.id, name: beer.name, style: beer.style }]
                                     });
                                 }}>
                                 Acheter

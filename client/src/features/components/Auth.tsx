@@ -1,10 +1,8 @@
-import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useEffect, useState } from 'react';
 import { LoginButton, LogoutButton } from '../components';
 
 export const Auth = () => {
-  const { isLoading, isAuthenticated, user, getAccessTokenSilently } = useAuth0();
+  const { isLoading, isAuthenticated, user } = useAuth0();
 
   // const [accessToken, setAccessToken] = useState();
 

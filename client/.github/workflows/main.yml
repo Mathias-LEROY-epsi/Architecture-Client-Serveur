@@ -18,5 +18,4 @@ jobs:
           version: 16.x
           cache: 'npm'
 
-      - run: npm install --frozen-lockfile
       - run: npm run ci

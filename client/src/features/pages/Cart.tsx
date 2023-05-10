@@ -53,9 +53,9 @@ export const Cart = () => {
             <div className="d-md-flex m-4 gap-4 align-items-center justify-content-evenly flex-wrap">
               {queryGetAllOrders.data.orders?.map((order: OrderProps) => (
                 <div key={order.id}>
-                  {order?.beers.map((beer: BeerProps) => (
+                  {order?.beers?.map((beer: BeerProps) => (
                     <Card
-                      key={order.id}
+                      key={beer.id}
                       type="order"
                       date={order.date?.split(' ', 1)[0]}
                       name={beer.name}
